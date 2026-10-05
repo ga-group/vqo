@@ -170,18 +170,6 @@ vqo:RefinitivContinuation
 	rdfs:label	"Refinitiv continuation"@en ;
 	rdfs:subClassOf	vqo:SyntheticFuture .
 
-vqo:CQGGeneric
-	a	owl:Class ;
-	rdfs:comment	"CQG generic is a synthetic ticker that points to the n-th nearby listed futures contract in a future chain, ordered by expiry."@en ;
-	rdfs:label	"CQG generic"@en ;
-	rdfs:subClassOf	vqo:SyntheticFuture .
-
-vqo:CQGPerpetual
-	a	owl:Class ;
-	rdfs:comment	"CQG perpetual is a synthetic ticker that represents the payoff of listed futures using a roll-over strategy."@en ;
-	rdfs:label	"CQG perpetual"@en ;
-	rdfs:subClassOf	vqo:SyntheticFuture .
-
 
 #################################################################
 # Individuals
