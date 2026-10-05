@@ -152,16 +152,6 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
       </owl:Class>
     </owl:equivalentClass>
   </owl:Class>
-  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/CQGGeneric">
-    <rdfs:comment xml:lang="en">CQG generic is a synthetic ticker that points to the n-th nearby listed futures contract in a future chain, ordered by expiry.</rdfs:comment>
-    <rdfs:label xml:lang="en">CQG generic</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/SyntheticFuture"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/CQGPerpetual">
-    <rdfs:comment xml:lang="en">CQG perpetual is a synthetic ticker that represents the payoff of listed futures using a roll-over strategy.</rdfs:comment>
-    <rdfs:label xml:lang="en">CQG perpetual</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/SyntheticFuture"/>
-  </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/FutureChain">
     <rdfs:comment xml:lang="en">the collection of all futures contracts on one exchange that share the same contract specification.</rdfs:comment>
     <rdfs:label xml:lang="en">future chain</rdfs:label>
