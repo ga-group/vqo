@@ -1,0 +1,260 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fibo-fbc-fi-fi: <https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix tempo: <http://purl.org/tempo/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vqo: <http://schema.ga-group.nl/vqo/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+#################################################################
+# Ontology header
+#################################################################
+
+vqo:
+	a	owl:Ontology ;
+	dc:abstract	"""vqo is a lightweight ontology based on fibo's derivatives ontology that captures vendor details that don't exist in the real world."""@en ;
+	dc:creator	"Sebastian Freundt"^^xsd:string ;
+	dc:description	"""Overview
+--------
+The vendor quirks ontology (vqo) provides vocabulary to classify and
+relate certain synthetic contract variants of exchange-listed
+derivatives.
+
+
+Why?
+----
+
+FIBO's official ontology heavily focusses on modelling the backoffice
+and regulatory reference side of things, real instruments, real
+entities, and real venues.  Analytical and strategy development
+workflows only exist as an afterthought.
+
+In the realm of exchange-listed derivatives, the number one analytical
+tool would be a *synthetic* contract that spans the lifetime of many
+individual *specific* contracts and inheres a roll-over strategy.
+Unlike the actual underlying benchmark (which sometimes wouldn't even
+exist) the synthetic contract is fully and easily replicable.
+
+With a few exceptions, exchanges don't offer perpetual contracts off
+the shelf, presumably not to fragment liquidity any further, given the
+sheer number of possible combinations between front-month and
+back-month exposure (possibly stretching out to further terms) and/or
+roll-over strategies.
+
+
+How?
+----
+
+Classes `vqo:FutureChain` and `vqo:OptionChain` are introduced as
+collections that share the same contract specification on one
+exchange, pretty much a vendor's definition of the futures or option
+chain.  And because chains (the collections) and contract
+specifications are intricably linked and inseparable in practice (one
+might say they are coextensive), they are not modelled as separate
+classes, instead the chain itself serves as the unified conceptual
+entity.
+
+Next, and probably more controversial, `vqo:SyntheticFuture` is
+created as subclass of `fibo-fbc-fi-fi:Future` to allow for
+vendor-specific perpetual contracts.  Of which there are:
+
+- vqo:BloombergGeneric
+- vqo:RefinitivContinuation
+
+and defined as synthetic futures created and maintained by
+`vqo:Bloomberg` and `vqo:Refinitiv`, two individuals of type
+`vqo:Vendor`.
+
+
+Where?
+------
+
+The [official github repository](https://github.com/ga-group/vqo/) contains the
+published ontology.
+
+The project's canonical home is <http://schema.ga-group.nl/vqo/>.
+"""@en ;
+	dcat:downloadURL	<http://schema.ga-group.nl/vqo/rdf> , <http://schema.ga-group.nl/vqo/ttl> ;
+	dct:creator	<https://orcid.org/0000-0002-7352-2825> ;
+	dct:format	"text/turtle"^^xsd:string ;
+	dct:issued	"2026-10-01T05:00:00Z"^^xsd:dateTime ;
+	dct:language	"en"^^xsd:language ;
+	dct:license	<https://creativecommons.org/licenses/by-sa/4.0/> ;
+	dct:modified	"2026-10-01T05:00:00Z"^^xsd:dateTime ;
+	dct:publisher	<https://orcid.org/0000-0002-7352-2825> ;
+	dct:title	"vqo -- vendor quirks ontology" ;
+	owl:imports	fibo-fbc-fi-fi: ;
+	owl:versionIRI	<http://schema.ga-group.nl/vqo/0.1/> ;
+	owl:versionInfo	"0.1"^^xsd:string ;
+	rdfs:label	"vqo"@en ;
+	rdfs:seeAlso	<https://github.com/ga-group/vqo> ;
+	vann:preferredNamespacePrefix	"vqo"^^xsd:string ;
+	vann:preferredNamespaceUri	"http://schema.ga-group.nl/vqo/" .
+
+#################################################################
+# Classes
+#################################################################
+
+vqo:FutureChain
+	a	owl:Class ;
+	rdfs:comment	"the collection of all futures contracts on one exchange that share the same contract specification."@en ;
+	rdfs:label	"future chain"@en ;
+	rdfs:subClassOf	gufo:Collection .
+
+vqo:OptionChain
+	a	owl:Class ;
+	rdfs:comment	"the collection of all option contracts on one exchange that share the same contract specification."@en ;
+	rdfs:label	"option chain"@en ;
+	rdfs:subClassOf	gufo:Collection .
+
+vqo:SyntheticFuture
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Restriction ;
+		owl:onProperty	vqo:synthesisOf ;
+		owl:minCardinality	"1"^^xsd:nonNegativeInteger ;
+	] ;
+	rdfs:comment	"A vendor-defined representation of market exposure, determined by selection, weighting, and roll-over rules of one or more exchange-listed contracts."@en ;
+	rdfs:label	"synthetic future"@en ;
+	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
+
+vqo:Vendor
+	a	owl:Class ;
+	rdfs:comment	"Organisation that defines and provides market data artefacts used in data feeds and analytics workflows."@en ;
+	rdfs:label	"vendor"@en ;
+	rdfs:subClassOf	gufo:Organization .
+
+vqo:BloombergGeneric
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Class ;
+		owl:intersectionOf	( [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:index ;
+			owl:minCardinality	"1"^^xsd:nonNegativeInteger ;
+		] [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:vendor ;
+			owl:hasValue	vqo:Bloomberg ;
+		] )
+	] ;
+	rdfs:comment	"Bloomberg generic is a synthetic ticker that always points to the n-th nearby listed futures contract in a future chain, ordered by expiry, and with no roll-over adjustment."@en ;
+	rdfs:label	"Bloomberg generic"@en ;
+	rdfs:subClassOf	vqo:SyntheticFuture .
+
+vqo:RefinitivContinuation
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Class ;
+		owl:intersectionOf	( [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:index ;
+			owl:minCardinality	"1"^^xsd:nonNegativeInteger ;
+		] [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:vendor ;
+			owl:hasValue	vqo:Refinitiv ;
+		] )
+	] ;
+	rdfs:comment	"Refinitiv continuation is a synthetic ticker that always points to the n-th nearby listed futures contract in a future chain, ordered by expiry."@en ;
+	rdfs:label	"Refinitiv continuation"@en ;
+	rdfs:subClassOf	vqo:SyntheticFuture .
+
+vqo:CQGGeneric
+	a	owl:Class ;
+	rdfs:comment	"CQG generic is a synthetic ticker that points to the n-th nearby listed futures contract in a future chain, ordered by expiry."@en ;
+	rdfs:label	"CQG generic"@en ;
+	rdfs:subClassOf	vqo:SyntheticFuture .
+
+vqo:CQGPerpetual
+	a	owl:Class ;
+	rdfs:comment	"CQG perpetual is a synthetic ticker that represents the payoff of listed futures using a roll-over strategy."@en ;
+	rdfs:label	"CQG perpetual"@en ;
+	rdfs:subClassOf	vqo:SyntheticFuture .
+
+
+#################################################################
+# Individuals
+#################################################################
+
+vqo:Bloomberg
+	a	owl:NamedIndividual ;
+	a	vqo:Vendor ;
+	rdfs:label	"Bloomberg" .
+
+vqo:Refinitiv
+	a	owl:NamedIndividual ;
+	a	vqo:Vendor ;
+	rdfs:label	"Refinitiv" .
+
+
+#################################################################
+# Object Properties
+#################################################################
+
+vqo:synthesisOf
+	a	owl:ObjectProperty ;
+	rdfs:comment	"relates a synthetic futures contract to its chain."@en ;
+	rdfs:domain	vqo:SyntheticFuture ;
+	rdfs:range	vqo:FutureChain ;
+	rdfs:label	"synthesis of"@en ;
+	rdfs:subPropertyOf	gufo:isBasedOn .
+
+vqo:vendor
+	a	owl:ObjectProperty ;
+	rdfs:comment	"relates a futures contract to the vendor that created it or maintains it."@en ;
+	rdfs:range	vqo:Vendor ;
+	rdfs:label	"vendor"@en ;
+	rdfs:subPropertyOf	gufo:isCreatedBy .
+
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+vqo:index
+	a	owl:DatatypeProperty ;
+	rdfs:comment	"relates an indexed synthetic futures contract to its index"@en ;
+	rdfs:range	xsd:integer ;
+	rdfs:label	"index"@en ;
+	rdfs:subClassOf	gufo:hasQualityValue .
+
+
+#################################################################
+# Examples
+#################################################################
+
+<http://example.com/bbg/CLA_Comdty>
+	a	vqo:FutureChain .
+
+<http://example.com/bbg/CL1_Comdty>
+	a	vqo:BloombergGeneric ;
+	rdfs:label	"CL1" ;
+	vqo:synthesisOf	<http://example.com/bbg/CLA_Comdty> .
+
+<http://example.com/cme/CL2_Comdty>
+	rdfs:label	"CL2" ;
+	vqo:index	"2"^^xsd:nonNegativeInteger ;
+	vqo:vendor	vqo:Bloomberg ;
+	vqo:synthesisOf	<http://example.com/bbg/CLA_Comdty> .
+
+<http://example.com/rftv/CLc1>
+	a	vqo:SyntheticFuture ;
+	rdfs:label	"CLc1" ;
+	vqo:synthesisOf	<http://example.com/rftv/0#CL:> .
+
+<http://example.com/rftv/CLc2>
+	rdfs:label	"CLc2" ;
+	vqo:index	"2"^^xsd:nonNegativeInteger ;
+	vqo:vendor	vqo:Refinitiv ;
+	vqo:synthesisOf	<http://example.com/rftv/0#CL:> .
