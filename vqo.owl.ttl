@@ -13,6 +13,7 @@
 @prefix tempo: <http://purl.org/tempo/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix vqo: <http://schema.ga-group.nl/vqo/> .
+@prefix xqo: <http://schema.ga-group.nl/xqo/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
@@ -93,7 +94,7 @@ The project's canonical home is <http://schema.ga-group.nl/vqo/>.
 	dct:modified	"2026-10-01T05:00:00Z"^^xsd:dateTime ;
 	dct:publisher	<https://orcid.org/0000-0002-7352-2825> ;
 	dct:title	"vqo -- vendor quirks ontology" ;
-	owl:imports	fibo-fbc-fi-fi: ;
+	owl:imports	fibo-fbc-fi-fi: , xqo: ;
 	owl:versionIRI	<http://schema.ga-group.nl/vqo/0.1/> ;
 	owl:versionInfo	"0.1"^^xsd:string ;
 	rdfs:label	"vqo"@en ;
@@ -107,13 +108,13 @@ The project's canonical home is <http://schema.ga-group.nl/vqo/>.
 
 vqo:FutureChain
 	a	owl:Class ;
-	rdfs:comment	"the collection of all futures contracts on one exchange that share the same contract specification."@en ;
+	rdfs:comment	"The collection of all futures contracts on one exchange that share the same contract specification."@en ;
 	rdfs:label	"future chain"@en ;
 	rdfs:subClassOf	gufo:Collection .
 
 vqo:OptionChain
 	a	owl:Class ;
-	rdfs:comment	"the collection of all option contracts on one exchange that share the same contract specification."@en ;
+	rdfs:comment	"The collection of all option contracts on one exchange that share the same contract specification."@en ;
 	rdfs:label	"option chain"@en ;
 	rdfs:subClassOf	gufo:Collection .
 
@@ -128,6 +129,19 @@ vqo:SyntheticFuture
 	rdfs:label	"synthetic future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
 
+vqo:SpecificFuture
+	a	owl:Class ;
+	owl:disjointWith	vqo:SyntheticFuture ;
+	owl:equivalentClass	[
+		a	owl:Restriction ;
+		owl:onProperty	vqo:specificOf ;
+		owl:minCardinality	"1"^^xsd:nonNegativeInteger ;
+	] ;
+	rdfs:comment	"An exchange-listed futures contract."@en ;
+	rdfs:label	"specific future"@en ;
+	rdfs:subClassOf	fibo-fbc-fi-fi:Future ;
+	skos:editorialNote	"""This class exists only to separate fibo-fbc-fi-fi:Futures into specifics and synthetics without one being the complement of the other."""@en.
+	
 vqo:Vendor
 	a	owl:Class ;
 	rdfs:comment	"Organisation that defines and provides market data artefacts used in data feeds and analytics workflows."@en ;
@@ -192,15 +206,39 @@ vqo:Refinitiv
 
 vqo:synthesisOf
 	a	owl:ObjectProperty ;
-	rdfs:comment	"relates a synthetic futures contract to its chain."@en ;
+	rdfs:comment	"Relates a synthetic futures contract to its chain."@en ;
 	rdfs:domain	vqo:SyntheticFuture ;
 	rdfs:range	vqo:FutureChain ;
 	rdfs:label	"synthesis of"@en ;
 	rdfs:subPropertyOf	gufo:isBasedOn .
 
+vqo:specificOf
+	a	owl:ObjectProperty ;
+	owl:inverseOf	vqo:specificMembers ;
+	rdfs:comment	"Relates a specific futures contract to its chain."@en ;
+	rdfs:domain	fibo-fbc-fi-fi:Future ;
+	rdfs:range	vqo:FutureChain ;
+	rdfs:label	"specific of"@en .
+
+vqo:syntheticMembers
+	a	owl:ObjectProperty ;
+	owl:inverseOf	vqo:synthesisOf ;
+	rdfs:comment	"Relates a futures chain to its synthetic members."@en ;
+	rdfs:domain	vqo:FutureChain ;
+	rdfs:range	vqo:SyntheticFuture ;
+	rdfs:label	"synthetic members"@en .
+
+vqo:specificMembers
+	a	owl:ObjectProperty ;
+	rdfs:comment	"Relates a futures chain to its specific members."@en ;
+	rdfs:domain	vqo:FutureChain ;
+	rdfs:range	fibo-fbc-fi-fi:Future ;
+	rdfs:label	"specific members"@en ;
+	rdfs:subPropertyOf	gufo:hasMember .
+
 vqo:vendor
 	a	owl:ObjectProperty ;
-	rdfs:comment	"relates a futures contract to the vendor that created it or maintains it."@en ;
+	rdfs:comment	"Relates a futures contract to the vendor that created it or maintains it."@en ;
 	rdfs:range	vqo:Vendor ;
 	rdfs:label	"vendor"@en ;
 	rdfs:subPropertyOf	gufo:isCreatedBy .
@@ -212,10 +250,10 @@ vqo:vendor
 
 vqo:index
 	a	owl:DatatypeProperty ;
-	rdfs:comment	"relates an indexed synthetic futures contract to its index"@en ;
+	rdfs:comment	"Relates an indexed synthetic futures contract to its index."@en ;
 	rdfs:range	xsd:integer ;
 	rdfs:label	"index"@en ;
-	rdfs:subClassOf	gufo:hasQualityValue .
+	rdfs:subPropertyOf	xqo:ordinal .
 
 
 #################################################################
@@ -235,6 +273,12 @@ vqo:index
 	vqo:index	"2"^^xsd:nonNegativeInteger ;
 	vqo:vendor	vqo:Bloomberg ;
 	vqo:synthesisOf	<http://example.com/bbg/CLA_Comdty> .
+
+<http://example.com/cme/CLZ6_Comdty>
+	rdfs:label	"CLZ6" ;
+	vqo:vendor	vqo:Bloomberg ;
+	vqo:specificOf	<http://example.com/bbg/CLA_Comdty> ;
+	xqo:ordinal	"2026-12"^^xsd:gYearMonth .
 
 <http://example.com/rftv/CLc1>
 	a	vqo:SyntheticFuture ;
