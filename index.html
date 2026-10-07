@@ -490,7 +490,14 @@ published ontology.</p>
               <a class="hover_property" href="http://www.w3.org/2002/07/owl#imports" title="The property that is used for importing other ontologies into a given ontology. Defined in The OWL 2 Schema vocabulary (OWL 2)">Imports</a>
             </dt>
             <dd>
-              <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/">fibo-fbc-fi-fi:</a>
+              <ul>
+                <li>
+                  <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/">fibo-fbc-fi-fi:</a>
+                </li>
+                <li>
+                  <a href="http://schema.ga-group.nl/xqo/">xqo:</a>
+                </li>
+              </ul>
             </dd>
           </div>
         </dl>
@@ -512,7 +519,7 @@ published ontology.</p>
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>the collection of all futures contracts on one exchange that share the same contract specification.</p></td>
+              <td><p>The collection of all futures contracts on one exchange that share the same contract specification.</p></td>
             </tr>
             <tr>
               <th>
@@ -524,13 +531,44 @@ published ontology.</p>
             </tr>
             <tr>
               <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inDomainOf" title="Inverse of rdfs:domain. Defined in Ontology Documentation Profile">In Domain Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#syntheticMembers">synthetic members</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#specificMembers">specific members</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
               </th>
               <td>
-                <span>
-                  <a href="#synthesisOf">synthesis of</a>
-                  <sup class="sup-op" title="OWL Object Property">op</sup>
-                </span>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#synthesisOf">synthesis of</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#specificOf">specific of</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                  </li>
+                </ul>
               </td>
             </tr>
           </table>
@@ -550,7 +588,7 @@ published ontology.</p>
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>the collection of all option contracts on one exchange that share the same contract specification.</p></td>
+              <td><p>The collection of all option contracts on one exchange that share the same contract specification.</p></td>
             </tr>
             <tr>
               <th>
@@ -619,6 +657,17 @@ published ontology.</p>
             </tr>
             <tr>
               <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/inRangeOf" title="Inverse of rdfs:range. Defined in Ontology Documentation Profile">In Range Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#syntheticMembers">synthetic members</a>
+                  <sup class="sup-op" title="OWL Object Property">op</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
                 <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
               </th>
               <td>
@@ -636,6 +685,52 @@ published ontology.</p>
                     </span>
                   </li>
                 </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="specificfuture">
+          <h3>specific future
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/SpecificFuture</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>An exchange-listed futures contract.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#specificOf">specific of</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">min</span>
+                      <span>1</span>
+                    </span><br>
+                  </span>
+                </span>
               </td>
             </tr>
           </table>
@@ -714,19 +809,6 @@ published ontology.</p>
                 <span>
                   <span>
                     <span>
-                      <a href="#index">index</a>
-                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
-                    </span>
-                    <span>
-                      <span class="cardinality">min</span>
-                      <span>1</span>
-                    </span><br>
-                  </span>
-                </span>
-                <span class="cardinality">and</span>
-                <span>
-                  <span>
-                    <span>
                       <a href="#vendor1">vendor</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
@@ -738,6 +820,19 @@ published ontology.</p>
                           <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
                       </span>
+                    </span><br>
+                  </span>
+                </span>
+                <span class="cardinality">and</span>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#index">index</a>
+                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">min</span>
+                      <span>1</span>
                     </span><br>
                   </span>
                 </span>
@@ -812,6 +907,296 @@ published ontology.</p>
             </tr>
           </table>
         </div>
+        <div class="property entity" id="dailyfuture">
+          <h3>daily future
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/DailyFuture</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Futures whose contract granularity is one (business) day, i.e. every (business) day of every year has a unique listed contract.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <a href="http://schema.ga-group.nl/xqo/ordinal">xqo:ordinal</a>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="weeklyfuture">
+          <h3>weekly future
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/WeeklyFuture</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Futures whose contract granularity is one calendar week, i.e. every week of every year has a unique listed contract.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <a href="http://schema.ga-group.nl/xqo/ordinal">xqo:ordinal</a>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/2001/XMLSchema#isoweek">xsd:isoweek</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="monthlyfuture">
+          <h3>monthly future
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/MonthlyFuture</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Futures whose contract granularity is one calendar month, i.e. every month of every year has a unique listed contract.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <a href="http://schema.ga-group.nl/xqo/ordinal">xqo:ordinal</a>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/2001/XMLSchema#gYearMonth">xsd:gYearMonth</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="quarterlyfuture">
+          <h3>quarterly future
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/QuarterlyFuture</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Futures whose contract granularity is one calendar quarter, i.e. every quarter of every year has a unique listed contract.</p>
+<p>Note: ISO 8601 EDTF quarters should still be typed xsd:isoquarter (instead of xsd:gYearMonth) to avoid confusion with monthly futures.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <a href="http://schema.ga-group.nl/xqo/ordinal">xqo:ordinal</a>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/2001/XMLSchema#isoquarter">xsd:isoquarter</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="semestrialfuture">
+          <h3>semestrial future
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/SemestrialFuture</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Futures whose contract granularity is one semester, i.e. every semester of every year has a unique listed contract.</p>
+<p>Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of xsd:gYearMonth) to avoid confusion with monthly futures.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <a href="http://schema.ga-group.nl/xqo/ordinal">xqo:ordinal</a>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/2001/XMLSchema#isosemester">xsd:isosemester</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="yearlyfuture">
+          <h3>yearly future
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/YearlyFuture</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Futures whose contract granularity is one calendar year, i.e. every year has a unique listed contract.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <a href="http://schema.ga-group.nl/xqo/ordinal">xqo:ordinal</a>
+                    <span>
+                      <span class="cardinality">some</span>
+                      <span>
+                        <span>
+                          <a href="http://www.w3.org/2001/XMLSchema#gYear">xsd:gYear</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
       <div class="section" id="objectproperties">
         <h2>Object Properties</h2>
@@ -830,7 +1215,7 @@ published ontology.</p>
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>relates a synthetic futures contract to its chain.</p></td>
+              <td><p>Relates a synthetic futures contract to its chain.</p></td>
             </tr>
             <tr>
               <th>
@@ -864,6 +1249,131 @@ published ontology.</p>
             </tr>
           </table>
         </div>
+        <div class="property entity" id="specificOf">
+          <h3>specific of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/specificOf</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Relates a specific futures contract to its chain.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="syntheticMembers">
+          <h3>synthetic members
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/syntheticMembers</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Relates a futures chain to its synthetic members.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#syntheticfuture">synthetic future</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="specificMembers">
+          <h3>specific members
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/specificMembers</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Relates a futures chain to its specific members.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <a href="http://purl.org/nemo/gufo#hasMember">gufo:hasMember</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#range" title="A range of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Range</a>
+              </th>
+              <td>
+                <a href="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/Future">fibo-fbc-fi-fi:Future</a>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="vendor1">
           <h3>vendor
             <sup class="sup-op" title="OWL Object Property">op</sup>
@@ -879,7 +1389,7 @@ published ontology.</p>
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>relates a futures contract to the vendor that created it or maintains it.</p></td>
+              <td><p>Relates a futures contract to the vendor that created it or maintains it.</p></td>
             </tr>
             <tr>
               <th>
@@ -920,7 +1430,15 @@ published ontology.</p>
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>relates an indexed synthetic futures contract to its index</p></td>
+              <td><p>Relates an indexed synthetic futures contract to its index.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <a href="http://schema.ga-group.nl/xqo/ordinal">xqo:ordinal</a>
+              </td>
             </tr>
             <tr>
               <th>
@@ -952,6 +1470,10 @@ published ontology.</p>
           <dd>
             <code>https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/</code>
           </dd>
+          <dt id="freq">freq</dt>
+          <dd>
+            <code>http://purl.org/cld/freq/</code>
+          </dd>
           <dt id="gufo">gufo</dt>
           <dd>
             <code>http://purl.org/nemo/gufo#</code>
@@ -968,6 +1490,10 @@ published ontology.</p>
           <dd>
             <code>http://www.w3.org/2000/01/rdf-schema#</code>
           </dd>
+          <dt id="skos">skos</dt>
+          <dd>
+            <code>http://www.w3.org/2004/02/skos/core#</code>
+          </dd>
           <dt id="vann">vann</dt>
           <dd>
             <code>http://purl.org/vocab/vann/</code>
@@ -975,6 +1501,10 @@ published ontology.</p>
           <dt id="vqo">vqo</dt>
           <dd>
             <code>http://schema.ga-group.nl/vqo/</code>
+          </dd>
+          <dt id="xqo">xqo</dt>
+          <dd>
+            <code>http://schema.ga-group.nl/xqo/</code>
           </dd>
           <dt id="xsd">xsd</dt>
           <dd>
@@ -1042,6 +1572,9 @@ published ontology.</p>
               <a href="#syntheticfuture">synthetic future</a>
             </li>
             <li>
+              <a href="#specificfuture">specific future</a>
+            </li>
+            <li>
               <a href="#vendor">vendor</a>
             </li>
             <li>
@@ -1049,6 +1582,24 @@ published ontology.</p>
             </li>
             <li>
               <a href="#RefinitivContinuation">Refinitiv continuation</a>
+            </li>
+            <li>
+              <a href="#dailyfuture">daily future</a>
+            </li>
+            <li>
+              <a href="#weeklyfuture">weekly future</a>
+            </li>
+            <li>
+              <a href="#monthlyfuture">monthly future</a>
+            </li>
+            <li>
+              <a href="#quarterlyfuture">quarterly future</a>
+            </li>
+            <li>
+              <a href="#semestrialfuture">semestrial future</a>
+            </li>
+            <li>
+              <a href="#yearlyfuture">yearly future</a>
             </li>
           </ul>
         </li>
@@ -1059,6 +1610,15 @@ published ontology.</p>
           <ul class="second">
             <li>
               <a href="#synthesisOf">synthesis of</a>
+            </li>
+            <li>
+              <a href="#specificOf">specific of</a>
+            </li>
+            <li>
+              <a href="#syntheticMembers">synthetic members</a>
+            </li>
+            <li>
+              <a href="#specificMembers">specific members</a>
             </li>
             <li>
               <a href="#vendor1">vendor</a>
@@ -1093,6 +1653,9 @@ published ontology.</p>
               <a href="#fibo-fbc-fi-fi">fibo-fbc-fi-fi</a>
             </li>
             <li>
+              <a href="#freq">freq</a>
+            </li>
+            <li>
               <a href="#gufo">gufo</a>
             </li>
             <li>
@@ -1105,10 +1668,16 @@ published ontology.</p>
               <a href="#rdfs">rdfs</a>
             </li>
             <li>
+              <a href="#skos">skos</a>
+            </li>
+            <li>
               <a href="#vann">vann</a>
             </li>
             <li>
               <a href="#vqo">vqo</a>
+            </li>
+            <li>
+              <a href="#xqo">xqo</a>
             </li>
             <li>
               <a href="#xsd">xsd</a>
