@@ -95,7 +95,7 @@ The project's canonical home is <http://schema.ga-group.nl/vqo/>.
 	dct:modified	"2026-10-01T05:00:00Z"^^xsd:dateTime ;
 	dct:publisher	<https://orcid.org/0000-0002-7352-2825> ;
 	dct:title	"vqo -- vendor quirks ontology" ;
-	owl:imports	fibo-fbc-fi-fi: , xqo: ;
+	owl:imports	fibo-fbc-fi-fi: , gufo: , xqo: ;
 	owl:versionIRI	<http://schema.ga-group.nl/vqo/0.1/> ;
 	owl:versionInfo	"0.1"^^xsd:string ;
 	rdfs:label	"vqo"@en ;

@@ -135,6 +135,7 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
     <vann:preferredNamespaceUri>http://schema.ga-group.nl/vqo/</vann:preferredNamespaceUri>
     <rdfs:label xml:lang="en">vqo</rdfs:label>
     <rdfs:seeAlso rdf:resource="https://github.com/ga-group/vqo"/>
+    <owl:imports rdf:resource="http://purl.org/nemo/gufo#"/>
     <owl:imports rdf:resource="http://schema.ga-group.nl/xqo/"/>
     <owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/"/>
     <owl:versionIRI rdf:resource="http://schema.ga-group.nl/vqo/0.1/"/>
