@@ -879,19 +879,6 @@ published ontology.</p>
                 <span>
                   <span>
                     <span>
-                      <a href="#index">index</a>
-                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
-                    </span>
-                    <span>
-                      <span class="cardinality">min</span>
-                      <span>1</span>
-                    </span><br>
-                  </span>
-                </span>
-                <span class="cardinality">and</span>
-                <span>
-                  <span>
-                    <span>
                       <a href="#vendor1">vendor</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
@@ -903,6 +890,19 @@ published ontology.</p>
                           <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
                       </span>
+                    </span><br>
+                  </span>
+                </span>
+                <span class="cardinality">and</span>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#index">index</a>
+                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">min</span>
+                      <span>1</span>
                     </span><br>
                   </span>
                 </span>
@@ -1415,6 +1415,41 @@ published ontology.</p>
             </tr>
           </table>
         </div>
+        <div class="property entity" id="variantof">
+          <h3>variant of
+            <sup class="sup-op" title="OWL Object Property">op</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/variantOf</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Links an operational futures variant to its outright contract.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subPropertyOf" title="The subject is a subproperty of a property. Defined in The RDF Schema vocabulary (RDFS)">Sub Property Of</a>
+              </th>
+              <td>
+                <a href="http://schema.ga-group.nl/xqo/variantOf">xqo:variantOf</a>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#domain" title="A domain of the subject property. Defined in The RDF Schema vocabulary (RDFS)">Domain</a>
+              </th>
+              <td>
+                <a href="http://schema.ga-group.nl/xqo/OperationalVariant">xqo:OperationalVariant</a>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
       <div class="section" id="datatypeproperties">
         <h2>Datatype Properties</h2>
@@ -1625,6 +1660,9 @@ published ontology.</p>
             </li>
             <li>
               <a href="#vendor1">vendor</a>
+            </li>
+            <li>
+              <a href="#variantof">variant of</a>
             </li>
           </ul>
         </li>

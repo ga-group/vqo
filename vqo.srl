@@ -1,0 +1,56 @@
+PREFIX vqo: <http://schema.ga-group.nl/vqo/>
+PREFIX xqo: <http://schema.ga-group.nl/xqo/>
+
+## chains are variants of each other if any
+## of their members are variants
+## this is the SRL version of the property chain axiom
+RULE <urn:tmp:infer-variant-via-generics> {
+	?c vqo:variantOf ?d
+}
+WHERE {
+	?x vqo:index ?i .
+	?y vqo:index ?i .
+	?x vqo:synthesisOf ?c .
+	?y vqo:synthesisOf ?d .
+	?x xqo:variantOf ?y .
+}
+
+## chains are variants of each other if any
+## of their members are variants
+## this is the SRL version of the property chain axiom
+RULE <urn:tmp:infer-variant-via-specifics> {
+	?c vqo:variantOf ?d
+}
+WHERE {
+	?x xqo:ordinal ?i .
+	?y xqo:ordinal ?i .
+	?x vqo:specificOf ?c .
+	?y vqo:specificOf ?d .
+	?x xqo:variantOf ?y .
+}
+
+## generics are variants of each other if their chains are
+## and the indices match
+RULE <urn:tmp:infer-variant-between-generics> {
+	?x xqo:variantOf ?y
+}
+WHERE {
+	?x vqo:index ?i .
+	?y vqo:index ?i .
+	?x vqo:synthesisOf ?c .
+	?y vqo:synthesisOf ?d .
+	?c vqo:variantOf ?d .
+}
+
+## specifics are variants of each other if their chains are
+## and the ordinals match
+RULE <urn:tmp:infer-variant-between-specifics> {
+	?x xqo:variantOf ?y
+}
+WHERE {
+	?x xqo:ordinal ?o .
+	?y xqo:ordinal ?o .
+	?x vqo:specificOf ?c .
+	?y vqo:specificOf ?d .
+	?c vqo:variantOf ?d .
+}

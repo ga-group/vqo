@@ -341,6 +341,25 @@ vqo:vendor
 	rdfs:label	"vendor"@en ;
 	rdfs:subPropertyOf	gufo:isCreatedBy .
 
+## extend xqo's variantOf
+
+vqo:variantOf
+	a	owl:ObjectProperty ;
+	owl:propertyChainAxiom	( [
+		owl:inverseOf vqo:specificOf
+	] xqo:variantOf vqo:specificOf ) ;
+	owl:propertyChainAxiom	( [
+		owl:inverseOf vqo:synthesisOf
+	] xqo:variantOf vqo:synthesisOf ) ;
+	rdfs:comment	"Links an operational futures variant to its outright contract."@en ;
+	rdfs:domain	xqo:OperationalVariant ;
+	rdfs:label	"variant of"@en ;
+	rdfs:subPropertyOf	xqo:variantOf ;
+	skos:editorialNote	"""xqo's variantOf relates OperationalVariants and futures contracts
+but it cannot relate the chains because that concept is missing there.  vqo's variantOf is a remedy.
+
+The property chain axioms (and their inverses) are given in vqo.srl."""@en .
+
 
 #################################################################
 # Datatype Properties
