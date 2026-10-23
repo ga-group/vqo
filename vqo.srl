@@ -1,5 +1,5 @@
 PREFIX vqo: <http://schema.ga-group.nl/vqo/>
-PREFIX xqo: <http://schema.ga-group.nl/xqo/>
+PREFIX xqo-xm: <http://schema.ga-group.nl/xqo/xm/>
 
 ## chains are variants of each other if any
 ## of their members are variants
@@ -12,7 +12,7 @@ WHERE {
 	?y vqo:index ?i .
 	?x vqo:synthesisOf ?c .
 	?y vqo:synthesisOf ?d .
-	?x xqo:variantOf ?y .
+	?x xqo-xm:variantOf ?y .
 }
 
 ## chains are variants of each other if any
@@ -26,13 +26,13 @@ WHERE {
 	?y xqo:ordinal ?i .
 	?x vqo:specificOf ?c .
 	?y vqo:specificOf ?d .
-	?x xqo:variantOf ?y .
+	?x xqo-xm:variantOf ?y .
 }
 
 ## generics are variants of each other if their chains are
 ## and the indices match
 RULE <urn:tmp:infer-variant-between-generics> {
-	?x xqo:variantOf ?y
+	?x xqo-xm:variantOf ?y
 }
 WHERE {
 	?x vqo:index ?i .
@@ -45,7 +45,7 @@ WHERE {
 ## specifics are variants of each other if their chains are
 ## and the ordinals match
 RULE <urn:tmp:infer-variant-between-specifics> {
-	?x xqo:variantOf ?y
+	?x xqo-xm:variantOf ?y
 }
 WHERE {
 	?x xqo:ordinal ?o .
@@ -53,4 +53,50 @@ WHERE {
 	?x vqo:specificOf ?c .
 	?y vqo:specificOf ?d .
 	?c vqo:variantOf ?d .
+}
+
+## this is the SRL version of the property chain axiom
+RULE <urn:tmp:infer-modality-via-generics> {
+	?c vqo:executedVia ?d
+}
+WHERE {
+	?x vqo:index ?i .
+	?y vqo:index ?i .
+	?x vqo:synthesisOf ?c .
+	?y vqo:synthesisOf ?d .
+	?x xqo-xm:executedVia ?y .
+}
+
+## this is the SRL version of the property chain axiom
+RULE <urn:tmp:infer-modality-via-specifics> {
+	?c vqo:executedVia ?d
+}
+WHERE {
+	?x xqo:ordinal ?i .
+	?y xqo:ordinal ?i .
+	?x vqo:specificOf ?c .
+	?y vqo:specificOf ?d .
+	?x xqo-xm:executedVia ?y .
+}
+
+RULE <urn:tmp:infer-modality-between-generics> {
+	?x xqo-xm:executedVia ?y
+}
+WHERE {
+	?x vqo:index ?i .
+	?y vqo:index ?i .
+	?x vqo:synthesisOf ?c .
+	?y vqo:synthesisOf ?d .
+	?c vqo:executedVia ?d .
+}
+
+RULE <urn:tmp:infer-modality-between-specifics> {
+	?x xqo-xm:executedVia ?y
+}
+WHERE {
+	?x xqo:ordinal ?o .
+	?y xqo:ordinal ?o .
+	?x vqo:specificOf ?c .
+	?y vqo:specificOf ?d .
+	?c vqo:executedVia ?d .
 }

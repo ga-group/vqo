@@ -16,19 +16,33 @@
    xmlns:tempo="http://purl.org/tempo/"
    xmlns:vann="http://purl.org/vocab/vann/"
    xmlns:vqo="http://schema.ga-group.nl/vqo/"
+   xmlns:xqo-xm="http://schema.ga-group.nl/xqo/xm/"
    xmlns:xqo="http://schema.ga-group.nl/xqo/"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <vqo:BloombergGeneric rdf:about="http://example.com/bbg/CL1_Comdty">
     <vqo:synthesisOf rdf:resource="http://example.com/bbg/CLA_Comdty"/>
     <rdfs:label>CL1</rdfs:label>
   </vqo:BloombergGeneric>
-  <vqo:FutureChain rdf:about="http://example.com/bbg/CLA_Comdty"/>
+  <vqo:FutureChain rdf:about="http://example.com/bbg/CLA_Comdty">
+    <vqo:spawns>
+      <vqo:SpawnSpec>
+        <vqo:freq rdf:resource="http://purl.org/cld/freq/monthly"/>
+        <vqo:rrule>FREQ=MONTHLY;BDAY=15</vqo:rrule>
+      </vqo:SpawnSpec>
+    </vqo:spawns>
+  </vqo:FutureChain>
   <rdf:Description rdf:about="http://example.com/cme/CL2_Comdty">
     <vqo:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</vqo:index>
     <vqo:synthesisOf rdf:resource="http://example.com/bbg/CLA_Comdty"/>
     <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Bloomberg"/>
     <rdfs:label>CL2</rdfs:label>
   </rdf:Description>
+  <vqo:SpawnSpec rdf:about="http://example.com/cme/CLA_spawn">
+    <vqo:frequency rdf:resource="http://purl.org/cld/freq/monthly"/>
+    <vqo:spawns>
+      <xqo:Recurrence/>
+    </vqo:spawns>
+  </vqo:SpawnSpec>
   <rdf:Description rdf:about="http://example.com/cme/CLZ6_Comdty">
     <vqo:specificOf rdf:resource="http://example.com/bbg/CLA_Comdty"/>
     <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Bloomberg"/>
@@ -42,7 +56,7 @@
     <rdfs:label>FTB10W25</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.com/cme/PEBAQ_Comdty">
-    <vqo:spawnFreq rdf:resource="http://purl.org/cld/freq/quarterly"/>
+    <vqo:spawns rdf:resource="http://purl.org/cld/freq/quarterly"/>
     <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Bloomberg"/>
     <rdfs:label>PEBAQ</rdfs:label>
   </rdf:Description>
@@ -137,6 +151,7 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
     <rdfs:seeAlso rdf:resource="https://github.com/ga-group/vqo"/>
     <owl:imports rdf:resource="http://purl.org/nemo/gufo#"/>
     <owl:imports rdf:resource="http://schema.ga-group.nl/xqo/"/>
+    <owl:imports rdf:resource="http://schema.ga-group.nl/xqo/xm/"/>
     <owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/"/>
     <owl:versionIRI rdf:resource="http://schema.ga-group.nl/vqo/0.1/"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.1</owl:versionInfo>
@@ -320,6 +335,57 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
       </owl:Restriction>
     </owl:equivalentClass>
   </owl:Class>
+  <owl:ObjectProperty rdf:about="http://schema.ga-group.nl/vqo/executedVia">
+    <rdfs:comment xml:lang="en">Links an execution modality to its outright contract.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://schema.ga-group.nl/xqo/xm/OperationalVariant"/>
+    <rdfs:label xml:lang="en">variant of</rdfs:label>
+    <rdfs:range rdf:resource="http://schema.ga-group.nl/xqo/xm/ExecutionModality"/>
+    <rdfs:subPropertyOf rdf:resource="http://schema.ga-group.nl/xqo/xm/executedVia"/>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first>
+          <rdf:Description>
+            <owl:inverseOf rdf:resource="http://schema.ga-group.nl/vqo/specificOf"/>
+          </rdf:Description>
+        </rdf:first>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://schema.ga-group.nl/xqo/xm/executedVia"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/specificOf"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+    <owl:propertyChainAxiom>
+      <rdf:Description>
+        <rdf:first>
+          <rdf:Description>
+            <owl:inverseOf rdf:resource="http://schema.ga-group.nl/vqo/synthesisOf"/>
+          </rdf:Description>
+        </rdf:first>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://schema.ga-group.nl/xqo/xm/executedVia"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/synthesisOf"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:propertyChainAxiom>
+    <skos:editorialNote xml:lang="en">xqo-xm's executedVia relates OperationalVariants and ExecutionModality's
+but it cannot relate the chains because that concept is missing there. vqo's executedVia is a remedy.
+
+The property chain axioms (and their inverses) are also given in vqo.srl.</skos:editorialNote>
+  </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="http://schema.ga-group.nl/vqo/index">
     <rdfs:comment xml:lang="en">Relates an indexed synthetic futures contract to its index.</rdfs:comment>
     <rdfs:label xml:lang="en">index</rdfs:label>
@@ -356,9 +422,9 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://schema.ga-group.nl/vqo/variantOf">
     <rdfs:comment xml:lang="en">Links an operational futures variant to its outright contract.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://schema.ga-group.nl/xqo/OperationalVariant"/>
+    <rdfs:domain rdf:resource="http://schema.ga-group.nl/xqo/xm/OperationalVariant"/>
     <rdfs:label xml:lang="en">variant of</rdfs:label>
-    <rdfs:subPropertyOf rdf:resource="http://schema.ga-group.nl/xqo/variantOf"/>
+    <rdfs:subPropertyOf rdf:resource="http://schema.ga-group.nl/xqo/xm/variantOf"/>
     <owl:propertyChainAxiom>
       <rdf:Description>
         <rdf:first>
@@ -399,10 +465,10 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
         </rdf:rest>
       </rdf:Description>
     </owl:propertyChainAxiom>
-    <skos:editorialNote xml:lang="en">xqo's variantOf relates OperationalVariants and futures contracts
-but it cannot relate the chains because that concept is missing there.  vqo's variantOf is a remedy.
+    <skos:editorialNote xml:lang="en">xqo-xm's variantOf relates OperationalVariants and futures contracts
+but it cannot relate the chains because that concept is missing there. vqo's variantOf is a remedy.
 
-The property chain axioms (and their inverses) are given in vqo.srl.</skos:editorialNote>
+The property chain axioms (and their inverses) are also given in vqo.srl.</skos:editorialNote>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://schema.ga-group.nl/vqo/vendor">
     <rdfs:comment xml:lang="en">Relates a futures contract to the vendor that created it or maintains it.</rdfs:comment>

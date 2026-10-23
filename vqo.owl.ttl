@@ -15,6 +15,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix vqo: <http://schema.ga-group.nl/vqo/> .
 @prefix xqo: <http://schema.ga-group.nl/xqo/> .
+@prefix xqo-xm: <http://schema.ga-group.nl/xqo/xm/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
@@ -95,7 +96,7 @@ The project's canonical home is <http://schema.ga-group.nl/vqo/>.
 	dct:modified	"2026-10-01T05:00:00Z"^^xsd:dateTime ;
 	dct:publisher	<https://orcid.org/0000-0002-7352-2825> ;
 	dct:title	"vqo -- vendor quirks ontology" ;
-	owl:imports	fibo-fbc-fi-fi: , gufo: , xqo: ;
+	owl:imports	fibo-fbc-fi-fi: , gufo: , xqo: , xqo-xm: ;
 	owl:versionIRI	<http://schema.ga-group.nl/vqo/0.1/> ;
 	owl:versionInfo	"0.1"^^xsd:string ;
 	rdfs:label	"vqo"@en ;
@@ -341,8 +342,7 @@ vqo:vendor
 	rdfs:label	"vendor"@en ;
 	rdfs:subPropertyOf	gufo:isCreatedBy .
 
-## extend xqo's variantOf
-
+## extend xqo-xm's variantOf
 vqo:variantOf
 	a	owl:ObjectProperty ;
 	owl:propertyChainAxiom	( [
@@ -352,13 +352,32 @@ vqo:variantOf
 		owl:inverseOf vqo:synthesisOf
 	] xqo:variantOf vqo:synthesisOf ) ;
 	rdfs:comment	"Links an operational futures variant to its outright contract."@en ;
-	rdfs:domain	xqo:OperationalVariant ;
+	rdfs:domain	xqo-xm:OperationalVariant ;
 	rdfs:label	"variant of"@en ;
-	rdfs:subPropertyOf	xqo:variantOf ;
-	skos:editorialNote	"""xqo's variantOf relates OperationalVariants and futures contracts
-but it cannot relate the chains because that concept is missing there.  vqo's variantOf is a remedy.
+	rdfs:subPropertyOf	xqo-xm:variantOf ;
+	skos:editorialNote	"""xqo-xm's variantOf relates OperationalVariants and futures contracts
+but it cannot relate the chains because that concept is missing there. vqo's variantOf is a remedy.
 
-The property chain axioms (and their inverses) are given in vqo.srl."""@en .
+The property chain axioms (and their inverses) are also given in vqo.srl."""@en .
+
+## and their executedVia
+vqo:executedVia
+	a	owl:ObjectProperty ;
+	owl:propertyChainAxiom	( [
+		owl:inverseOf vqo:specificOf
+	] xqo-xm:executedVia vqo:specificOf ) ;
+	owl:propertyChainAxiom	( [
+		owl:inverseOf vqo:synthesisOf
+	] xqo-xm:executedVia vqo:synthesisOf ) ;
+	rdfs:comment	"Links an execution modality to its outright contract."@en ;
+	rdfs:domain	xqo-xm:OperationalVariant ;
+	rdfs:label	"variant of"@en ;
+	rdfs:range	xqo-xm:ExecutionModality ;
+	rdfs:subPropertyOf	xqo-xm:executedVia ;
+	skos:editorialNote	"""xqo-xm's executedVia relates OperationalVariants and ExecutionModality's
+but it cannot relate the chains because that concept is missing there. vqo's executedVia is a remedy.
+
+The property chain axioms (and their inverses) are also given in vqo.srl."""@en .
 
 
 #################################################################
@@ -378,7 +397,12 @@ vqo:index
 #################################################################
 
 <http://example.com/bbg/CLA_Comdty>
-	a	vqo:FutureChain .
+	a	vqo:FutureChain ;
+	vqo:spawns	[
+		a	vqo:SpawnSpec ;
+		vqo:freq	freq:monthly ;
+		vqo:rrule	"FREQ=MONTHLY;BDAY=15" ;
+	] .
 
 <http://example.com/bbg/CL1_Comdty>
 	a	vqo:BloombergGeneric ;
@@ -417,8 +441,15 @@ vqo:index
 <http://example.com/cme/PEBAQ_Comdty>
 	rdfs:label	"PEBAQ" ;
 	vqo:vendor	vqo:Bloomberg ;
-	vqo:spawnFreq	freq:quarterly .
+	vqo:spawns	freq:quarterly .
 
 <http://example.com/cme/PEBF7Q_Comdty>
 	vqo:specificOf	<http://example.com/cme/PEBAQ_Comdty> ;
 	vqo:vendor	vqo:Bloomberg .
+
+<http://example.com/cme/CLA_spawn>
+	a	vqo:SpawnSpec ;
+	vqo:frequency	freq:monthly ;
+	vqo:spawns	[
+		a	xqo:Recurrence
+	] .
