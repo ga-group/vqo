@@ -815,6 +815,19 @@ published ontology.</p>
                 <span>
                   <span>
                     <span>
+                      <a href="#index">index</a>
+                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">min</span>
+                      <span>1</span>
+                    </span><br>
+                  </span>
+                </span>
+                <span class="cardinality">and</span>
+                <span>
+                  <span>
+                    <span>
                       <a href="#vendor1">vendor</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
@@ -826,19 +839,6 @@ published ontology.</p>
                           <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
                       </span>
-                    </span><br>
-                  </span>
-                </span>
-                <span class="cardinality">and</span>
-                <span>
-                  <span>
-                    <span>
-                      <a href="#index">index</a>
-                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
-                    </span>
-                    <span>
-                      <span class="cardinality">min</span>
-                      <span>1</span>
                     </span><br>
                   </span>
                 </span>
@@ -882,6 +882,19 @@ published ontology.</p>
                 <span>
                   <span>
                     <span>
+                      <a href="#index">index</a>
+                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">min</span>
+                      <span>1</span>
+                    </span><br>
+                  </span>
+                </span>
+                <span class="cardinality">and</span>
+                <span>
+                  <span>
+                    <span>
                       <a href="#vendor1">vendor</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
@@ -893,19 +906,6 @@ published ontology.</p>
                           <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
                       </span>
-                    </span><br>
-                  </span>
-                </span>
-                <span class="cardinality">and</span>
-                <span>
-                  <span>
-                    <span>
-                      <a href="#index">index</a>
-                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
-                    </span>
-                    <span>
-                      <span class="cardinality">min</span>
-                      <span>1</span>
                     </span><br>
                   </span>
                 </span>
@@ -1199,6 +1199,42 @@ published ontology.</p>
                     </span><br>
                   </span>
                 </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="retrospectivelyrevokedinstrument">
+          <h3>retrospectively revoked instrument
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/RetrospectivelyRevokedInstrument</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Instrument that was published and later revoked.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2004/02/skos/core#scopeNote" title="A note that helps to clarify the meaning and/or the use of a concept. Defined in SKOS Vocabulary">Scope Note</a>
+              </th>
+              <td><p>Vendors generally anticipate the birth of instruments, and (or more precisely in order to) provide identifiers ahead of time
+for use in master data, reference data, documentation, or similar.  For some reason or another this might lead to duplicates or hallucinations.
+Once confirmed that the anticipated instrument failed to instantiate, or a duplicate has been identified, the vendor revokes the instrument by reclassing
+it as retrospectively revoked instrument.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="http://purl.org/nemo/gufo#Category">gufo:Category</a>
               </td>
             </tr>
           </table>
@@ -1554,10 +1590,6 @@ published ontology.</p>
           <dd>
             <code>https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/</code>
           </dd>
-          <dt id="freq">freq</dt>
-          <dd>
-            <code>http://purl.org/cld/freq/</code>
-          </dd>
           <dt id="gufo">gufo</dt>
           <dd>
             <code>http://purl.org/nemo/gufo#</code>
@@ -1689,6 +1721,9 @@ published ontology.</p>
             <li>
               <a href="#yearlyfuture">yearly future</a>
             </li>
+            <li>
+              <a href="#retrospectivelyrevokedinstrument">retrospectively revoked instrument</a>
+            </li>
           </ul>
         </li>
         <li>
@@ -1745,9 +1780,6 @@ published ontology.</p>
             </li>
             <li>
               <a href="#fibo-fbc-fi-fi">fibo-fbc-fi-fi</a>
-            </li>
-            <li>
-              <a href="#freq">freq</a>
             </li>
             <li>
               <a href="#gufo">gufo</a>

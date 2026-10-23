@@ -19,61 +19,6 @@
    xmlns:xqo-xm="http://schema.ga-group.nl/xqo/xm/"
    xmlns:xqo="http://schema.ga-group.nl/xqo/"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
-  <vqo:BloombergGeneric rdf:about="http://example.com/bbg/CL1_Comdty">
-    <vqo:synthesisOf rdf:resource="http://example.com/bbg/CLA_Comdty"/>
-    <rdfs:label>CL1</rdfs:label>
-  </vqo:BloombergGeneric>
-  <vqo:FutureChain rdf:about="http://example.com/bbg/CLA_Comdty">
-    <vqo:spawns>
-      <vqo:SpawnSpec>
-        <vqo:freq rdf:resource="http://purl.org/cld/freq/monthly"/>
-        <vqo:rrule>FREQ=MONTHLY;BDAY=15</vqo:rrule>
-      </vqo:SpawnSpec>
-    </vqo:spawns>
-  </vqo:FutureChain>
-  <rdf:Description rdf:about="http://example.com/cme/CL2_Comdty">
-    <vqo:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</vqo:index>
-    <vqo:synthesisOf rdf:resource="http://example.com/bbg/CLA_Comdty"/>
-    <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Bloomberg"/>
-    <rdfs:label>CL2</rdfs:label>
-  </rdf:Description>
-  <vqo:SpawnSpec rdf:about="http://example.com/cme/CLA_spawn">
-    <vqo:frequency rdf:resource="http://purl.org/cld/freq/monthly"/>
-    <vqo:spawns>
-      <xqo:Recurrence/>
-    </vqo:spawns>
-  </vqo:SpawnSpec>
-  <rdf:Description rdf:about="http://example.com/cme/CLZ6_Comdty">
-    <vqo:specificOf rdf:resource="http://example.com/bbg/CLA_Comdty"/>
-    <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Bloomberg"/>
-    <xqo:ordinal rdf:datatype="http://www.w3.org/2001/XMLSchema#gYearMonth">2026-12</xqo:ordinal>
-    <rdfs:label>CLZ6</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.com/cme/FTB10W25_Comdty">
-    <vqo:specificOf rdf:resource="http://example.com/bbg/FTBWA_Comdty"/>
-    <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Bloomberg"/>
-    <xqo:ordinal rdf:datatype="http://www.w3.org/2001/XMLSchema#isoweek">2025-W10</xqo:ordinal>
-    <rdfs:label>FTB10W25</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.com/cme/PEBAQ_Comdty">
-    <vqo:spawns rdf:resource="http://purl.org/cld/freq/quarterly"/>
-    <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Bloomberg"/>
-    <rdfs:label>PEBAQ</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.com/cme/PEBF7Q_Comdty">
-    <vqo:specificOf rdf:resource="http://example.com/cme/PEBAQ_Comdty"/>
-    <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Bloomberg"/>
-  </rdf:Description>
-  <vqo:SyntheticFuture rdf:about="http://example.com/rftv/CLc1">
-    <vqo:synthesisOf rdf:resource="http://example.com/rftv/0#CL:"/>
-    <rdfs:label>CLc1</rdfs:label>
-  </vqo:SyntheticFuture>
-  <rdf:Description rdf:about="http://example.com/rftv/CLc2">
-    <vqo:index rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</vqo:index>
-    <vqo:synthesisOf rdf:resource="http://example.com/rftv/0#CL:"/>
-    <vqo:vendor rdf:resource="http://schema.ga-group.nl/vqo/Refinitiv"/>
-    <rdfs:label>CLc2</rdfs:label>
-  </rdf:Description>
   <owl:Ontology rdf:about="http://schema.ga-group.nl/vqo/">
     <dc:abstract xml:lang="en">vqo is a lightweight ontology based on fibo's derivatives ontology that captures vendor details that don't exist in the real world.</dc:abstract>
     <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sebastian Freundt</dc:creator>
@@ -270,6 +215,15 @@ Note: ISO 8601 EDTF quarters should still be typed xsd:isoquarter (instead of xs
         </owl:intersectionOf>
       </owl:Class>
     </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/RetrospectivelyRevokedInstrument">
+    <rdfs:comment xml:lang="en">Instrument that was published and later revoked.</rdfs:comment>
+    <rdfs:label xml:lang="en">retrospectively revoked instrument</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Category"/>
+    <skos:scopeNote xml:lang="en">Vendors generally anticipate the birth of instruments, and (or more precisely in order to) provide identifiers ahead of time
+for use in master data, reference data, documentation, or similar.  For some reason or another this might lead to duplicates or hallucinations.
+Once confirmed that the anticipated instrument failed to instantiate, or a duplicate has been identified, the vendor revokes the instrument by reclassing
+it as retrospectively revoked instrument.</skos:scopeNote>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/SemestrialFuture">
     <rdfs:comment xml:lang="en">Futures whose contract granularity is one semester, i.e. every semester of every year has a unique listed contract.

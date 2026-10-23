@@ -283,6 +283,16 @@ vqo:YearlyFuture
 	rdfs:label	"yearly future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
 
+vqo:RetrospectivelyRevokedInstrument
+	a	owl:Class ;
+	rdfs:comment	"Instrument that was published and later revoked."@en ;
+	rdfs:label	"retrospectively revoked instrument"@en ;
+	rdfs:subClassOf	gufo:Category ;
+	skos:scopeNote	"""Vendors generally anticipate the birth of instruments, and (or more precisely in order to) provide identifiers ahead of time
+for use in master data, reference data, documentation, or similar.  For some reason or another this might lead to duplicates or hallucinations.
+Once confirmed that the anticipated instrument failed to instantiate, or a duplicate has been identified, the vendor revokes the instrument by reclassing
+it as retrospectively revoked instrument."""@en .
+
 
 #################################################################
 # Individuals
@@ -396,60 +406,60 @@ vqo:index
 # Examples
 #################################################################
 
-<http://example.com/bbg/CLA_Comdty>
-	a	vqo:FutureChain ;
-	vqo:spawns	[
-		a	vqo:SpawnSpec ;
-		vqo:freq	freq:monthly ;
-		vqo:rrule	"FREQ=MONTHLY;BDAY=15" ;
-	] .
-
-<http://example.com/bbg/CL1_Comdty>
-	a	vqo:BloombergGeneric ;
-	rdfs:label	"CL1" ;
-	vqo:synthesisOf	<http://example.com/bbg/CLA_Comdty> .
-
-<http://example.com/cme/CL2_Comdty>
-	rdfs:label	"CL2" ;
-	vqo:index	"2"^^xsd:nonNegativeInteger ;
-	vqo:vendor	vqo:Bloomberg ;
-	vqo:synthesisOf	<http://example.com/bbg/CLA_Comdty> .
-
-<http://example.com/cme/CLZ6_Comdty>
-	rdfs:label	"CLZ6" ;
-	vqo:vendor	vqo:Bloomberg ;
-	vqo:specificOf	<http://example.com/bbg/CLA_Comdty> ;
-	xqo:ordinal	"2026-12"^^xsd:gYearMonth .
-
-<http://example.com/rftv/CLc1>
-	a	vqo:SyntheticFuture ;
-	rdfs:label	"CLc1" ;
-	vqo:synthesisOf	<http://example.com/rftv/0#CL:> .
-
-<http://example.com/rftv/CLc2>
-	rdfs:label	"CLc2" ;
-	vqo:index	"2"^^xsd:nonNegativeInteger ;
-	vqo:vendor	vqo:Refinitiv ;
-	vqo:synthesisOf	<http://example.com/rftv/0#CL:> .
-
-<http://example.com/cme/FTB10W25_Comdty>
-	rdfs:label	"FTB10W25" ;
-	vqo:vendor	vqo:Bloomberg ;
-	vqo:specificOf	<http://example.com/bbg/FTBWA_Comdty> ;
-	xqo:ordinal	"2025-W10"^^xsd:isoweek .
-
-<http://example.com/cme/PEBAQ_Comdty>
-	rdfs:label	"PEBAQ" ;
-	vqo:vendor	vqo:Bloomberg ;
-	vqo:spawns	freq:quarterly .
-
-<http://example.com/cme/PEBF7Q_Comdty>
-	vqo:specificOf	<http://example.com/cme/PEBAQ_Comdty> ;
-	vqo:vendor	vqo:Bloomberg .
-
-<http://example.com/cme/CLA_spawn>
-	a	vqo:SpawnSpec ;
-	vqo:frequency	freq:monthly ;
-	vqo:spawns	[
-		a	xqo:Recurrence
-	] .
+#<http://example.com/bbg/CLA_Comdty>
+#	a	vqo:FutureChain ;
+#	vqo:spawns	[
+#		a	vqo:SpawnSpec ;
+#		vqo:freq	freq:monthly ;
+#		vqo:rrule	"FREQ=MONTHLY;BDAY=15" ;
+#	] .
+#
+#<http://example.com/bbg/CL1_Comdty>
+#	a	vqo:BloombergGeneric ;
+#	rdfs:label	"CL1" ;
+#	vqo:synthesisOf	<http://example.com/bbg/CLA_Comdty> .
+#
+#<http://example.com/cme/CL2_Comdty>
+#	rdfs:label	"CL2" ;
+#	vqo:index	"2"^^xsd:nonNegativeInteger ;
+#	vqo:vendor	vqo:Bloomberg ;
+#	vqo:synthesisOf	<http://example.com/bbg/CLA_Comdty> .
+#
+#<http://example.com/cme/CLZ6_Comdty>
+#	rdfs:label	"CLZ6" ;
+#	vqo:vendor	vqo:Bloomberg ;
+#	vqo:specificOf	<http://example.com/bbg/CLA_Comdty> ;
+#	xqo:ordinal	"2026-12"^^xsd:gYearMonth .
+#
+#<http://example.com/rftv/CLc1>
+#	a	vqo:SyntheticFuture ;
+#	rdfs:label	"CLc1" ;
+#	vqo:synthesisOf	<http://example.com/rftv/0#CL:> .
+#
+#<http://example.com/rftv/CLc2>
+#	rdfs:label	"CLc2" ;
+#	vqo:index	"2"^^xsd:nonNegativeInteger ;
+#	vqo:vendor	vqo:Refinitiv ;
+#	vqo:synthesisOf	<http://example.com/rftv/0#CL:> .
+#
+#<http://example.com/cme/FTB10W25_Comdty>
+#	rdfs:label	"FTB10W25" ;
+#	vqo:vendor	vqo:Bloomberg ;
+#	vqo:specificOf	<http://example.com/bbg/FTBWA_Comdty> ;
+#	xqo:ordinal	"2025-W10"^^xsd:isoweek .
+#
+#<http://example.com/cme/PEBAQ_Comdty>
+#	rdfs:label	"PEBAQ" ;
+#	vqo:vendor	vqo:Bloomberg ;
+#	vqo:spawns	freq:quarterly .
+#
+#<http://example.com/cme/PEBF7Q_Comdty>
+#	vqo:specificOf	<http://example.com/cme/PEBAQ_Comdty> ;
+#	vqo:vendor	vqo:Bloomberg .
+#
+#<http://example.com/cme/CLA_spawn>
+#	a	vqo:SpawnSpec ;
+#	vqo:frequency	freq:monthly ;
+#	vqo:spawns	[
+#		a	xqo:Recurrence
+#	] .
