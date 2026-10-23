@@ -351,12 +351,7 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
         <rdf:rest>
           <rdf:Description>
             <rdf:first rdf:resource="http://schema.ga-group.nl/xqo/xm/executedVia"/>
-            <rdf:rest>
-              <rdf:Description>
-                <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/specificOf"/>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-              </rdf:Description>
-            </rdf:rest>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           </rdf:Description>
         </rdf:rest>
       </rdf:Description>
@@ -371,12 +366,7 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
         <rdf:rest>
           <rdf:Description>
             <rdf:first rdf:resource="http://schema.ga-group.nl/xqo/xm/executedVia"/>
-            <rdf:rest>
-              <rdf:Description>
-                <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/synthesisOf"/>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-              </rdf:Description>
-            </rdf:rest>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           </rdf:Description>
         </rdf:rest>
       </rdf:Description>

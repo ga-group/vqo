@@ -365,10 +365,10 @@ vqo:executedVia
 	a	owl:ObjectProperty ;
 	owl:propertyChainAxiom	( [
 		owl:inverseOf vqo:specificOf
-	] xqo-xm:executedVia vqo:specificOf ) ;
+	] xqo-xm:executedVia ) ;
 	owl:propertyChainAxiom	( [
 		owl:inverseOf vqo:synthesisOf
-	] xqo-xm:executedVia vqo:synthesisOf ) ;
+	] xqo-xm:executedVia ) ;
 	rdfs:comment	"Links an execution modality to its outright contract."@en ;
 	rdfs:domain	xqo-xm:OperationalVariant ;
 	rdfs:label	"variant of"@en ;
