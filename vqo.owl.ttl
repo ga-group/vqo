@@ -136,13 +136,13 @@ xsd:isosemester
 
 vqo:FutureChain
 	a	owl:Class ;
-	rdfs:comment	"The collection of all futures contracts on one exchange that share the same contract specification."@en ;
+	rdfs:comment	"Collection of futures contracts on one exchange that share the same contract specification."@en ;
 	rdfs:label	"future chain"@en ;
 	rdfs:subClassOf	gufo:Collection .
 
 vqo:OptionChain
 	a	owl:Class ;
-	rdfs:comment	"The collection of all option contracts on one exchange that share the same contract specification."@en ;
+	rdfs:comment	"Collection of option contracts on one exchange that share the same contract specification."@en ;
 	rdfs:label	"option chain"@en ;
 	rdfs:subClassOf	gufo:Collection .
 
@@ -169,6 +169,12 @@ vqo:SpecificFuture
 	rdfs:label	"specific future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future ;
 	skos:editorialNote	"""This class exists only to separate fibo-fbc-fi-fi:Futures into specifics and synthetics without one being the complement of the other."""@en.
+
+vqo:TestInstrument
+	a	owl:Class ;
+	rdfs:comment	"Vendor-defined conceptual instrument created solely for diagnostic validation or rule-testing purposes."@en ;
+	rdfs:label	"test instrument"@en ;
+	rdfs:subClassOf	gufo:Role .
 	
 vqo:Vendor
 	a	owl:Class ;
@@ -212,6 +218,7 @@ vqo:RefinitivContinuation
 	rdfs:label	"Refinitiv continuation"@en ;
 	rdfs:subClassOf	vqo:SyntheticFuture .
 
+## cycles
 
 vqo:DailyFuture
 	a	owl:Class ;
@@ -224,6 +231,17 @@ vqo:DailyFuture
 	rdfs:label	"daily future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
 
+vqo:DailyChain
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Restriction ;
+		owl:onProperty	vqo:specificMembers ;
+		owl:allValuesFrom	vqo:DailyFuture ;
+	] ;
+	rdfs:comment	"Future chain whose specific members are spawned daily."@en ;
+	rdfs:label	"daily chain"@en ;
+	rdfs:subClassOf	vqo:FutureChain .
+
 vqo:WeeklyFuture
 	a	owl:Class ;
 	owl:equivalentClass	[
@@ -235,6 +253,17 @@ vqo:WeeklyFuture
 	rdfs:label	"weekly future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
 
+vqo:WeeklyChain
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Restriction ;
+		owl:onProperty	vqo:specificMembers ;
+		owl:allValuesFrom	vqo:WeeklyFuture ;
+	] ;
+	rdfs:comment	"Future chain whose specific members are spawned weekly."@en ;
+	rdfs:label	"weekly chain"@en ;
+	rdfs:subClassOf	vqo:FutureChain .
+
 vqo:MonthlyFuture
 	a	owl:Class ;
 	owl:equivalentClass	[
@@ -245,6 +274,17 @@ vqo:MonthlyFuture
 	rdfs:comment	"Futures whose contract granularity is one calendar month, i.e. every month of every year has a unique listed contract."@en ;
 	rdfs:label	"monthly future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
+
+vqo:MonthlyChain
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Restriction ;
+		owl:onProperty	vqo:specificMembers ;
+		owl:allValuesFrom	vqo:MonthlyFuture ;
+	] ;
+	rdfs:comment	"Future chain whose specific members are spawned monthly."@en ;
+	rdfs:label	"monthly chain"@en ;
+	rdfs:subClassOf	vqo:FutureChain .
 
 vqo:QuarterlyFuture
 	a	owl:Class ;
@@ -259,6 +299,17 @@ Note: ISO 8601 EDTF quarters should still be typed xsd:isoquarter (instead of xs
 	rdfs:label	"quarterly future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
 
+vqo:QuarterlyChain
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Restriction ;
+		owl:onProperty	vqo:specificMembers ;
+		owl:allValuesFrom	vqo:QuarterlyFuture ;
+	] ;
+	rdfs:comment	"Future chain whose specific members are spawned quarterly."@en ;
+	rdfs:label	"quarterly chain"@en ;
+	rdfs:subClassOf	vqo:FutureChain .
+
 vqo:SemestrialFuture
 	a	owl:Class ;
 	owl:equivalentClass	[
@@ -272,6 +323,17 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
 	rdfs:label	"semestrial future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
 
+vqo:SemestrialChain
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Restriction ;
+		owl:onProperty	vqo:specificMembers ;
+		owl:allValuesFrom	vqo:SemestrialFuture ;
+	] ;
+	rdfs:comment	"Future chain whose specific members are spawned semestrially."@en ;
+	rdfs:label	"semestrial chain"@en ;
+	rdfs:subClassOf	vqo:FutureChain .
+
 vqo:YearlyFuture
 	a	owl:Class ;
 	owl:equivalentClass	[
@@ -282,6 +344,40 @@ vqo:YearlyFuture
 	rdfs:comment	"Futures whose contract granularity is one calendar year, i.e. every year has a unique listed contract."@en ;
 	rdfs:label	"yearly future"@en ;
 	rdfs:subClassOf	fibo-fbc-fi-fi:Future .
+
+vqo:YearlyChain
+	a	owl:Class ;
+	owl:equivalentClass	[
+		a	owl:Restriction ;
+		owl:onProperty	vqo:specificMembers ;
+		owl:allValuesFrom	vqo:YearlyFuture ;
+	] ;
+	rdfs:comment	"Future chain whose specific members are spawned yearly."@en ;
+	rdfs:label	"yearly chain"@en ;
+	rdfs:subClassOf	vqo:FutureChain .
+
+[]
+	a	owl:AllDisjointClasses ;
+	owl:members	(
+		vqo:DailyFuture
+		vqo:WeeklyFuture
+		vqo:MonthlyFuture
+		vqo:QuarterlyFuture
+		vqo:SemestrialFuture
+		vqo:YearlyFuture
+	) .
+
+
+[]
+	a	owl:AllDisjointClasses ;
+	owl:members	(
+		vqo:DailyChain
+		vqo:WeeklyChain
+		vqo:MonthlyChain
+		vqo:QuarterlyChain
+		vqo:SemestrialChain
+		vqo:YearlyChain
+	) .
 
 vqo:RetrospectivelyRevokedInstrument
 	a	owl:Class ;

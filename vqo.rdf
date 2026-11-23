@@ -137,6 +137,17 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
       </owl:Class>
     </owl:equivalentClass>
   </owl:Class>
+  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/DailyChain">
+    <rdfs:comment xml:lang="en">Future chain whose specific members are spawned daily.</rdfs:comment>
+    <rdfs:label xml:lang="en">daily chain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/DailyFuture"/>
+        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/DailyFuture">
     <rdfs:comment xml:lang="en">Futures whose contract granularity is one (business) day, i.e. every (business) day of every year has a unique listed contract.</rdfs:comment>
     <rdfs:label xml:lang="en">daily future</rdfs:label>
@@ -149,9 +160,20 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
     </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/FutureChain">
-    <rdfs:comment xml:lang="en">The collection of all futures contracts on one exchange that share the same contract specification.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Collection of futures contracts on one exchange that share the same contract specification.</rdfs:comment>
     <rdfs:label xml:lang="en">future chain</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Collection"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/MonthlyChain">
+    <rdfs:comment xml:lang="en">Future chain whose specific members are spawned monthly.</rdfs:comment>
+    <rdfs:label xml:lang="en">monthly chain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/MonthlyFuture"/>
+        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/MonthlyFuture">
     <rdfs:comment xml:lang="en">Futures whose contract granularity is one calendar month, i.e. every month of every year has a unique listed contract.</rdfs:comment>
@@ -165,9 +187,20 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
     </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/OptionChain">
-    <rdfs:comment xml:lang="en">The collection of all option contracts on one exchange that share the same contract specification.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Collection of option contracts on one exchange that share the same contract specification.</rdfs:comment>
     <rdfs:label xml:lang="en">option chain</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Collection"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/QuarterlyChain">
+    <rdfs:comment xml:lang="en">Future chain whose specific members are spawned quarterly.</rdfs:comment>
+    <rdfs:label xml:lang="en">quarterly chain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/QuarterlyFuture"/>
+        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/QuarterlyFuture">
     <rdfs:comment xml:lang="en">Futures whose contract granularity is one calendar quarter, i.e. every quarter of every year has a unique listed contract.
@@ -225,6 +258,17 @@ for use in master data, reference data, documentation, or similar.  For some rea
 Once confirmed that the anticipated instrument failed to instantiate, or a duplicate has been identified, the vendor revokes the instrument by reclassing
 it as retrospectively revoked instrument.</skos:scopeNote>
   </owl:Class>
+  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/SemestrialChain">
+    <rdfs:comment xml:lang="en">Future chain whose specific members are spawned semestrially.</rdfs:comment>
+    <rdfs:label xml:lang="en">semestrial chain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/SemestrialFuture"/>
+        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/SemestrialFuture">
     <rdfs:comment xml:lang="en">Futures whose contract granularity is one semester, i.e. every semester of every year has a unique listed contract.
 
@@ -262,10 +306,26 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
       </owl:Restriction>
     </owl:equivalentClass>
   </owl:Class>
+  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/TestInstrument">
+    <rdfs:comment xml:lang="en">Vendor-defined conceptual instrument created solely for diagnostic validation or rule-testing purposes.</rdfs:comment>
+    <rdfs:label xml:lang="en">test instrument</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Role"/>
+  </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/Vendor">
     <rdfs:comment xml:lang="en">Organisation that defines and provides market data artefacts used in data feeds and analytics workflows.</rdfs:comment>
     <rdfs:label xml:lang="en">vendor</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/nemo/gufo#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/WeeklyChain">
+    <rdfs:comment xml:lang="en">Future chain whose specific members are spawned weekly.</rdfs:comment>
+    <rdfs:label xml:lang="en">weekly chain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/WeeklyFuture"/>
+        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/WeeklyFuture">
     <rdfs:comment xml:lang="en">Futures whose contract granularity is one calendar week, i.e. every week of every year has a unique listed contract.</rdfs:comment>
@@ -275,6 +335,17 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
       <owl:Restriction>
         <owl:onProperty rdf:resource="http://schema.ga-group.nl/xqo/ordinal"/>
         <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#isoweek"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://schema.ga-group.nl/vqo/YearlyChain">
+    <rdfs:comment xml:lang="en">Future chain whose specific members are spawned yearly.</rdfs:comment>
+    <rdfs:label xml:lang="en">yearly chain</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/YearlyFuture"/>
+        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
       </owl:Restriction>
     </owl:equivalentClass>
   </owl:Class>
@@ -459,4 +530,70 @@ The property chain axioms (and their inverses) are also given in vqo.srl.</skos:
       </rdf:Description>
     </owl:withRestrictions>
   </rdfs:Datatype>
+  <owl:AllDisjointClasses>
+    <owl:members>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/DailyFuture"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/WeeklyFuture"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/MonthlyFuture"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/QuarterlyFuture"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/SemestrialFuture"/>
+                        <rdf:rest>
+                          <rdf:Description>
+                            <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/YearlyFuture"/>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                          </rdf:Description>
+                        </rdf:rest>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  <owl:AllDisjointClasses>
+    <owl:members>
+      <rdf:Description>
+        <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/DailyChain"/>
+        <rdf:rest>
+          <rdf:Description>
+            <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/WeeklyChain"/>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/MonthlyChain"/>
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/QuarterlyChain"/>
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/SemestrialChain"/>
+                        <rdf:rest>
+                          <rdf:Description>
+                            <rdf:first rdf:resource="http://schema.ga-group.nl/vqo/YearlyChain"/>
+                            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                          </rdf:Description>
+                        </rdf:rest>
+                      </rdf:Description>
+                    </rdf:rest>
+                  </rdf:Description>
+                </rdf:rest>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </rdf:rest>
+      </rdf:Description>
+    </owl:members>
+  </owl:AllDisjointClasses>
 </rdf:RDF>

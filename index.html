@@ -525,7 +525,7 @@ published ontology.</p>
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>The collection of all futures contracts on one exchange that share the same contract specification.</p></td>
+              <td><p>Collection of futures contracts on one exchange that share the same contract specification.</p></td>
             </tr>
             <tr>
               <th>
@@ -577,6 +577,51 @@ published ontology.</p>
                 </ul>
               </td>
             </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="https://w3id.org/profile/ontdoc/superClassOf" title="Inverse of RDFS' subClassOf. Defined in Ontology Documentation Profile">Super Class Of</a>
+              </th>
+              <td>
+                <ul>
+                  <li>
+                    <span>
+                      <a href="#DailyChain">daily chain</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#WeeklyChain">weekly chain</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#MonthlyChain">monthly chain</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#QuarterlyChain">quarterly chain</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#SemestrialChain">semestrial chain</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      <a href="#YearlyChain">yearly chain</a>
+                      <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
           </table>
         </div>
         <div class="property entity" id="optionchain">
@@ -594,7 +639,7 @@ published ontology.</p>
               <th>
                 <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
               </th>
-              <td><p>The collection of all option contracts on one exchange that share the same contract specification.</p></td>
+              <td><p>Collection of option contracts on one exchange that share the same contract specification.</p></td>
             </tr>
             <tr>
               <th>
@@ -741,6 +786,33 @@ published ontology.</p>
             </tr>
           </table>
         </div>
+        <div class="property entity" id="testinstrument">
+          <h3>test instrument
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/TestInstrument</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Vendor-defined conceptual instrument created solely for diagnostic validation or rule-testing purposes.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <a href="http://purl.org/nemo/gufo#Role">gufo:Role</a>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="vendor">
           <h3>vendor
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -815,19 +887,6 @@ published ontology.</p>
                 <span>
                   <span>
                     <span>
-                      <a href="#index">index</a>
-                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
-                    </span>
-                    <span>
-                      <span class="cardinality">min</span>
-                      <span>1</span>
-                    </span><br>
-                  </span>
-                </span>
-                <span class="cardinality">and</span>
-                <span>
-                  <span>
-                    <span>
                       <a href="#vendor1">vendor</a>
                       <sup class="sup-op" title="OWL Object Property">op</sup>
                     </span>
@@ -839,6 +898,19 @@ published ontology.</p>
                           <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
                       </span>
+                    </span><br>
+                  </span>
+                </span>
+                <span class="cardinality">and</span>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#index">index</a>
+                      <sup class="sup-dp" title="OWL Datatype Property">dp</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">min</span>
+                      <span>1</span>
                     </span><br>
                   </span>
                 </span>
@@ -961,6 +1033,60 @@ published ontology.</p>
             </tr>
           </table>
         </div>
+        <div class="property entity" id="DailyChain">
+          <h3>daily chain
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/DailyChain</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Future chain whose specific members are spawned daily.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#specificMembers">specific members</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">only</span>
+                      <span>
+                        <span>
+                          <a href="#dailyfuture">daily future</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="weeklyfuture">
           <h3>weekly future
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -1009,6 +1135,60 @@ published ontology.</p>
             </tr>
           </table>
         </div>
+        <div class="property entity" id="WeeklyChain">
+          <h3>weekly chain
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/WeeklyChain</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Future chain whose specific members are spawned weekly.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#specificMembers">specific members</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">only</span>
+                      <span>
+                        <span>
+                          <a href="#weeklyfuture">weekly future</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="monthlyfuture">
           <h3>monthly future
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -1047,6 +1227,60 @@ published ontology.</p>
                       <span>
                         <span>
                           <a href="http://www.w3.org/2001/XMLSchema#gYearMonth">xsd:gYearMonth</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="MonthlyChain">
+          <h3>monthly chain
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/MonthlyChain</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Future chain whose specific members are spawned monthly.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#specificMembers">specific members</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">only</span>
+                      <span>
+                        <span>
+                          <a href="#monthlyfuture">monthly future</a>
                           <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
                       </span>
@@ -1106,6 +1340,60 @@ published ontology.</p>
             </tr>
           </table>
         </div>
+        <div class="property entity" id="QuarterlyChain">
+          <h3>quarterly chain
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/QuarterlyChain</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Future chain whose specific members are spawned quarterly.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#specificMembers">specific members</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">only</span>
+                      <span>
+                        <span>
+                          <a href="#quarterlyfuture">quarterly future</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="semestrialfuture">
           <h3>semestrial future
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -1155,6 +1443,60 @@ published ontology.</p>
             </tr>
           </table>
         </div>
+        <div class="property entity" id="SemestrialChain">
+          <h3>semestrial chain
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/SemestrialChain</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Future chain whose specific members are spawned semestrially.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#specificMembers">specific members</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">only</span>
+                      <span>
+                        <span>
+                          <a href="#semestrialfuture">semestrial future</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="property entity" id="yearlyfuture">
           <h3>yearly future
             <sup class="sup-c" title="OWL/RDFS Class">c</sup>
@@ -1193,6 +1535,60 @@ published ontology.</p>
                       <span>
                         <span>
                           <a href="http://www.w3.org/2001/XMLSchema#gYear">xsd:gYear</a>
+                          <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                        </span>
+                      </span>
+                    </span><br>
+                  </span>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="property entity" id="YearlyChain">
+          <h3>yearly chain
+            <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+          </h3>
+          <table>
+            <tr>
+              <th>IRI</th>
+              <td>
+                <code>http://schema.ga-group.nl/vqo/YearlyChain</code>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://purl.org/dc/terms/description" title="An account of the resource. Defined in DCMI Metadata Terms">Description</a>
+              </th>
+              <td><p>Future chain whose specific members are spawned yearly.</p></td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2000/01/rdf-schema#subClassOf" title="The subject is a subclass of a class. Defined in The RDF Schema vocabulary (RDFS)">Sub Class Of</a>
+              </th>
+              <td>
+                <span>
+                  <a href="#futurechain">future chain</a>
+                  <sup class="sup-c" title="OWL/RDFS Class">c</sup>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <a class="hover_property" href="http://www.w3.org/2002/07/owl#equivalentClass" title="The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. Defined in The OWL 2 Schema vocabulary (OWL 2)">Equivalentclass</a>
+              </th>
+              <td>
+                <span>
+                  <span>
+                    <span>
+                      <a href="#specificMembers">specific members</a>
+                      <sup class="sup-op" title="OWL Object Property">op</sup>
+                    </span>
+                    <span>
+                      <span class="cardinality">only</span>
+                      <span>
+                        <span>
+                          <a href="#yearlyfuture">yearly future</a>
                           <sup class="sup-c" title="OWL/RDFS Class">c</sup>
                         </span>
                       </span>
@@ -1695,6 +2091,9 @@ it as retrospectively revoked instrument.</p></td>
               <a href="#specificfuture">specific future</a>
             </li>
             <li>
+              <a href="#testinstrument">test instrument</a>
+            </li>
+            <li>
               <a href="#vendor">vendor</a>
             </li>
             <li>
@@ -1707,19 +2106,37 @@ it as retrospectively revoked instrument.</p></td>
               <a href="#dailyfuture">daily future</a>
             </li>
             <li>
+              <a href="#DailyChain">daily chain</a>
+            </li>
+            <li>
               <a href="#weeklyfuture">weekly future</a>
+            </li>
+            <li>
+              <a href="#WeeklyChain">weekly chain</a>
             </li>
             <li>
               <a href="#monthlyfuture">monthly future</a>
             </li>
             <li>
+              <a href="#MonthlyChain">monthly chain</a>
+            </li>
+            <li>
               <a href="#quarterlyfuture">quarterly future</a>
+            </li>
+            <li>
+              <a href="#QuarterlyChain">quarterly chain</a>
             </li>
             <li>
               <a href="#semestrialfuture">semestrial future</a>
             </li>
             <li>
+              <a href="#SemestrialChain">semestrial chain</a>
+            </li>
+            <li>
               <a href="#yearlyfuture">yearly future</a>
+            </li>
+            <li>
+              <a href="#YearlyChain">yearly chain</a>
             </li>
             <li>
               <a href="#retrospectivelyrevokedinstrument">retrospectively revoked instrument</a>
