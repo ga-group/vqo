@@ -233,9 +233,16 @@ vqo:DailyFuture
 vqo:DailyChain
 	a	owl:Class ;
 	owl:equivalentClass	[
-		a	owl:Restriction ;
-		owl:onProperty	vqo:specificMembers ;
-		owl:allValuesFrom	vqo:DailyFuture ;
+		a	owl:Class ;
+		owl:intersectionOf	( [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:allValuesFrom	vqo:DailyFuture ;
+		] [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:someValuesFrom	vqo:DailyFuture ;
+		] )
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned daily."@en ;
 	rdfs:label	"daily chain"@en ;
@@ -255,9 +262,16 @@ vqo:WeeklyFuture
 vqo:WeeklyChain
 	a	owl:Class ;
 	owl:equivalentClass	[
-		a	owl:Restriction ;
-		owl:onProperty	vqo:specificMembers ;
-		owl:allValuesFrom	vqo:WeeklyFuture ;
+		a	owl:Class ;
+		owl:intersectionOf	( [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:allValuesFrom	vqo:WeeklyFuture ;
+		] [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:someValuesFrom	vqo:WeeklyFuture ;
+		] )
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned weekly."@en ;
 	rdfs:label	"weekly chain"@en ;
@@ -277,9 +291,16 @@ vqo:MonthlyFuture
 vqo:MonthlyChain
 	a	owl:Class ;
 	owl:equivalentClass	[
-		a	owl:Restriction ;
-		owl:onProperty	vqo:specificMembers ;
-		owl:allValuesFrom	vqo:MonthlyFuture ;
+		a	owl:Class ;
+		owl:intersectionOf	( [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:allValuesFrom	vqo:MonthlyFuture ;
+		] [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:someValuesFrom	vqo:MonthlyFuture ;
+		] )
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned monthly."@en ;
 	rdfs:label	"monthly chain"@en ;
@@ -301,9 +322,16 @@ Note: ISO 8601 EDTF quarters should still be typed xsd:isoquarter (instead of xs
 vqo:QuarterlyChain
 	a	owl:Class ;
 	owl:equivalentClass	[
-		a	owl:Restriction ;
-		owl:onProperty	vqo:specificMembers ;
-		owl:allValuesFrom	vqo:QuarterlyFuture ;
+		a	owl:Class ;
+		owl:intersectionOf	( [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:allValuesFrom	vqo:QuarterlyFuture ;
+		] [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:someValuesFrom	vqo:QuarterlyFuture ;
+		] )
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned quarterly."@en ;
 	rdfs:label	"quarterly chain"@en ;
@@ -325,9 +353,16 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
 vqo:SemestrialChain
 	a	owl:Class ;
 	owl:equivalentClass	[
-		a	owl:Restriction ;
-		owl:onProperty	vqo:specificMembers ;
-		owl:allValuesFrom	vqo:SemestrialFuture ;
+		a	owl:Class ;
+		owl:intersectionOf	( [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:allValuesFrom	vqo:SemestrialFuture ;
+		] [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:someValuesFrom	vqo:SemeastrialFuture ;
+		] )
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned semestrially."@en ;
 	rdfs:label	"semestrial chain"@en ;
@@ -347,9 +382,16 @@ vqo:YearlyFuture
 vqo:YearlyChain
 	a	owl:Class ;
 	owl:equivalentClass	[
-		a	owl:Restriction ;
-		owl:onProperty	vqo:specificMembers ;
-		owl:allValuesFrom	vqo:YearlyFuture ;
+		a	owl:Class ;
+		owl:intersectionOf	( [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:allValuesFrom	vqo:YearlyFuture ;
+		] [
+			a	owl:Restriction ;
+			owl:onProperty	vqo:specificMembers ;
+			owl:someValuesFrom	vqo:YearlyFuture ;
+		] )
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned yearly."@en ;
 	rdfs:label	"yearly chain"@en ;

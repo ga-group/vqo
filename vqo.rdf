@@ -140,10 +140,29 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
     <rdfs:label xml:lang="en">daily chain</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
     <owl:equivalentClass>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/DailyFuture"/>
-        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
-      </owl:Restriction>
+      <owl:Class>
+        <owl:intersectionOf>
+          <rdf:Description>
+            <rdf:first>
+              <owl:Restriction>
+                <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/DailyFuture"/>
+                <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+              </owl:Restriction>
+            </rdf:first>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first>
+                  <owl:Restriction>
+                    <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+                    <owl:someValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/DailyFuture"/>
+                  </owl:Restriction>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
     </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/DailyFuture">
@@ -167,10 +186,29 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
     <rdfs:label xml:lang="en">monthly chain</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
     <owl:equivalentClass>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/MonthlyFuture"/>
-        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
-      </owl:Restriction>
+      <owl:Class>
+        <owl:intersectionOf>
+          <rdf:Description>
+            <rdf:first>
+              <owl:Restriction>
+                <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/MonthlyFuture"/>
+                <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+              </owl:Restriction>
+            </rdf:first>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first>
+                  <owl:Restriction>
+                    <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+                    <owl:someValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/MonthlyFuture"/>
+                  </owl:Restriction>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
     </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/MonthlyFuture">
@@ -194,10 +232,29 @@ The project's canonical home is &lt;http://schema.ga-group.nl/vqo/&gt;.
     <rdfs:label xml:lang="en">quarterly chain</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
     <owl:equivalentClass>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/QuarterlyFuture"/>
-        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
-      </owl:Restriction>
+      <owl:Class>
+        <owl:intersectionOf>
+          <rdf:Description>
+            <rdf:first>
+              <owl:Restriction>
+                <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/QuarterlyFuture"/>
+                <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+              </owl:Restriction>
+            </rdf:first>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first>
+                  <owl:Restriction>
+                    <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+                    <owl:someValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/QuarterlyFuture"/>
+                  </owl:Restriction>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
     </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/QuarterlyFuture">
@@ -261,10 +318,29 @@ it as retrospectively revoked instrument.</skos:scopeNote>
     <rdfs:label xml:lang="en">semestrial chain</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
     <owl:equivalentClass>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/SemestrialFuture"/>
-        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
-      </owl:Restriction>
+      <owl:Class>
+        <owl:intersectionOf>
+          <rdf:Description>
+            <rdf:first>
+              <owl:Restriction>
+                <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/SemestrialFuture"/>
+                <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+              </owl:Restriction>
+            </rdf:first>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first>
+                  <owl:Restriction>
+                    <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+                    <owl:someValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/SemeastrialFuture"/>
+                  </owl:Restriction>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
     </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/SemestrialFuture">
@@ -319,10 +395,29 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
     <rdfs:label xml:lang="en">weekly chain</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
     <owl:equivalentClass>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/WeeklyFuture"/>
-        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
-      </owl:Restriction>
+      <owl:Class>
+        <owl:intersectionOf>
+          <rdf:Description>
+            <rdf:first>
+              <owl:Restriction>
+                <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/WeeklyFuture"/>
+                <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+              </owl:Restriction>
+            </rdf:first>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first>
+                  <owl:Restriction>
+                    <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+                    <owl:someValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/WeeklyFuture"/>
+                  </owl:Restriction>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
     </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/WeeklyFuture">
@@ -341,10 +436,29 @@ Note: ISO 8601 EDTF semesters should still be typed xsd:isosemester (instead of 
     <rdfs:label xml:lang="en">yearly chain</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://schema.ga-group.nl/vqo/FutureChain"/>
     <owl:equivalentClass>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/YearlyFuture"/>
-        <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
-      </owl:Restriction>
+      <owl:Class>
+        <owl:intersectionOf>
+          <rdf:Description>
+            <rdf:first>
+              <owl:Restriction>
+                <owl:allValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/YearlyFuture"/>
+                <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+              </owl:Restriction>
+            </rdf:first>
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first>
+                  <owl:Restriction>
+                    <owl:onProperty rdf:resource="http://schema.ga-group.nl/vqo/specificMembers"/>
+                    <owl:someValuesFrom rdf:resource="http://schema.ga-group.nl/vqo/YearlyFuture"/>
+                  </owl:Restriction>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+          </rdf:Description>
+        </owl:intersectionOf>
+      </owl:Class>
     </owl:equivalentClass>
   </owl:Class>
   <owl:Class rdf:about="http://schema.ga-group.nl/vqo/YearlyFuture">
