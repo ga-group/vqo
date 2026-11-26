@@ -246,7 +246,11 @@ vqo:DailyChain
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned daily."@en ;
 	rdfs:label	"daily chain"@en ;
-	rdfs:subClassOf	vqo:FutureChain .
+	rdfs:subClassOf	vqo:FutureChain ;
+	skos:scopeNote	"""While possibly coincident with the exchange notion
+of a daily contract chain, this is a pure vendor concept, and is used for
+separating daily contracts from other contracts (e.g. hourlies or weeklies).
+Unless otherwise specified it is also not equivalent to a strip of hourlies."""@en .
 
 vqo:WeeklyFuture
 	a	owl:Class ;
@@ -275,7 +279,11 @@ vqo:WeeklyChain
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned weekly."@en ;
 	rdfs:label	"weekly chain"@en ;
-	rdfs:subClassOf	vqo:FutureChain .
+	rdfs:subClassOf	vqo:FutureChain ;
+	skos:scopeNote	"""While possibly coincident with the exchange notion
+of a weekly contract chain, this is a pure vendor concept, and is used for
+separating weekly contracts from other contracts (e.g. dailies or monthlies).
+Unless otherwise specified it is also not equivalent to a strip of dailies."""@en .
 
 vqo:MonthlyFuture
 	a	owl:Class ;
@@ -304,7 +312,11 @@ vqo:MonthlyChain
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned monthly."@en ;
 	rdfs:label	"monthly chain"@en ;
-	rdfs:subClassOf	vqo:FutureChain .
+	rdfs:subClassOf	vqo:FutureChain ;
+	skos:scopeNote	"""While possibly coincident with the exchange notion
+of a monthly contract chain, this is a pure vendor concept, and is used for
+separating monthly contracts from other contracts (e.g. dailies or quarterlies).
+Unless otherwise specified it is also not equivalent to a strip of dailies."""@en .
 
 vqo:QuarterlyFuture
 	a	owl:Class ;
@@ -335,7 +347,11 @@ vqo:QuarterlyChain
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned quarterly."@en ;
 	rdfs:label	"quarterly chain"@en ;
-	rdfs:subClassOf	vqo:FutureChain .
+	rdfs:subClassOf	vqo:FutureChain ;
+	skos:scopeNote	"""While possibly coincident with the exchange notion
+of a quarterly contract chain, this is a pure vendor concept, and is used for
+separating quarterly contracts from other contracts (e.g. monthlies or yearlies).
+Unless otherwise specified it is also not equivalent to a strip of monthlies."""@en .
 
 vqo:SemestrialFuture
 	a	owl:Class ;
@@ -366,7 +382,13 @@ vqo:SemestrialChain
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned semestrially."@en ;
 	rdfs:label	"semestrial chain"@en ;
-	rdfs:subClassOf	vqo:FutureChain .
+	rdfs:subClassOf	vqo:FutureChain ;
+	skos:scopeNote	"""While possibly coincident with the exchange notion
+of a semestrial or seasonal contract chain, this is a pure vendor concept, and
+is used for separating semestrial or seasonal contracts from other contracts
+(e.g. quarterlies or yearlies).
+Unless otherwise specified it is also not equivalent to a strip of monthlies
+or quarterlies."""@en .
 
 vqo:YearlyFuture
 	a	owl:Class ;
@@ -395,7 +417,12 @@ vqo:YearlyChain
 	] ;
 	rdfs:comment	"Future chain whose specific members are spawned yearly."@en ;
 	rdfs:label	"yearly chain"@en ;
-	rdfs:subClassOf	vqo:FutureChain .
+	rdfs:subClassOf	vqo:FutureChain ;
+	skos:scopeNote	"""While possibly coincident with the exchange notion
+of a yearly contract chain, this is a pure vendor concept, and is used for
+separating yearly contracts from other contracts (e.g. monthlies or quarterlies).
+Unless otherwise specified it is also not equivalent to a strip of, say, monthlies
+or quarterlies."""@en .
 
 []
 	a	owl:AllDisjointClasses ;
